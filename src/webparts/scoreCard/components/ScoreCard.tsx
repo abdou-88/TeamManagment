@@ -272,11 +272,11 @@ export const ScoreCard: React.FC<IAppProps> = ({
 
   // CRUD functions area
   function createItem(): void {
-    setStatus("Creating item...");
+    setStatus("Saving month data...");
     
 
     const body: string = JSON.stringify({
-      Month: ` ${new Date()}`,
+      Month: ` ${monthToAdd}`,
       ScoreCardData: `Wariii kanjarbo`,
     });
 
