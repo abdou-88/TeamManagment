@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+    <ClientSideComponentInstance
+        Title="TeamManagment"
+        Location="ClientSideExtension.ApplicationCustomizer"
+        ComponentId="5831ef5a-a400-43c4-b461-fc91c6ec25d0"
+        Properties="{&quot;testMessage&quot;:&quot;Test message&quot;}">
+    </ClientSideComponentInstance>
+</Elements>

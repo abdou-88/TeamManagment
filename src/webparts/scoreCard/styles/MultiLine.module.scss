@@ -1,0 +1,94 @@
+*,
+:before,
+:after {
+  box-sizing: border-box;
+  box-shadow: rgb(156, 156, 156) 5px;
+}
+
+TextA
+{
+  box-sizing: border-box;
+}
+
+
+a {
+  color: #fff;
+  text-decoration: none;
+}
+
+a:hover {
+  opacity: 40%;
+}
+
+h1 {
+  text-align: center;
+}
+
+form {
+  width: 320px;
+  margin: 45px auto;
+}
+
+.group {
+  position: relative;
+  margin: 45px 0;
+}
+
+textarea {
+  resize: none;
+}
+
+textarea {
+  background: none;
+  background-color: rgb(255, 255, 255);
+  color: #000;
+  font-size: 18px;
+  padding: 10px 10px 10px 5px;
+  display: block;
+  width: 100%;
+  border: none;
+  border-radius: 0;
+  border-bottom: 1px solid #c6c6c6;
+}
+input:focus, textarea:focus {
+  outline: none;
+  box-shadow: rgb(156, 156, 156) 5px;
+background-color: rgb(216, 216, 216);
+
+}
+input:focus ~ .bar:before,
+textarea:focus ~ .bar:before {
+  width: 100%;
+
+}
+
+textarea:focus ~ .textarea:before {
+
+box-shadow: rgb(156, 156, 156) 5px;
+background-color: rgb(143, 143, 143);
+}
+
+.bar {
+  position: relative;
+  display: block;
+  width: 100%;
+}
+.bar:before {
+  content: "";
+  height: 2px;
+  width: 0;
+  bottom: 0px;
+  position: absolute;
+  background: rgb(12, 158, 217);
+  transition: 300ms ease all;
+  left: 0%;
+}
+
+.hide{
+  display : none
+}
+.show{
+ 
+  display : block
+
+}

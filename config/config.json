@@ -1,0 +1,33 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/config.2.0.schema.json",
+  "version": "2.0",
+  "bundles": {
+    "team-managment-application-customizer": {
+      "components": [
+        {
+          "entrypoint": "./lib/extensions/teamManagment/TeamManagmentApplicationCustomizer.js",
+          "manifest": "./src/extensions/teamManagment/TeamManagmentApplicationCustomizer.manifest.json"
+        }
+      ]
+    },
+    "score-card-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/scoreCard/ScoreCardWebPart.js",
+          "manifest": "./src/webparts/scoreCard/ScoreCardWebPart.manifest.json"
+        }
+      ]
+    }
+  },
+  "externals": {
+    "jquery": {
+      "path": "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.min.js",
+      "globalName": "jQuery"
+    }
+  },
+  "localizedResources": {
+    "TeamManagmentApplicationCustomizerStrings": "lib/extensions/teamManagment/loc/{locale}.js",
+    "ScoreCardWebPartStrings": "lib/webparts/scoreCard/loc/{locale}.js",
+    "PropertyControlStrings": "node_modules/@pnp/spfx-property-controls/lib/loc/{locale}.js"
+  }
+}

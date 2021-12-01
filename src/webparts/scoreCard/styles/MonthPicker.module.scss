@@ -1,0 +1,113 @@
+*, *:before, *:after {
+	box-sizing: border-box;
+}
+
+
+.arrow {
+  
+  width: 50px;
+  height: 50px;
+  padding: 5px;
+  display: inline-block;
+  position: relative;
+  transition: all 0.2s linear ;
+
+  &::before {
+    content: '';
+    display: block;
+    width: 30px;
+    height: 30px;
+    top: 50%;
+    left: 50%;
+    border-style: solid;
+    border-color: #000000;
+    border-width: 2px 2px 0 0;
+    position: absolute;
+    transform-origin: 50% 50%;
+  }
+
+  &.left::before { 
+    transform: rotate(-135deg);
+    margin: -15px 0 0 -10px;
+    //border-color: #ffffff;
+  }
+  
+  &.right::before { 
+    transform: rotate(45deg); 
+    margin: -15px 0 0 -20px;
+   // border-color: #ffffff;
+  }
+  
+  &::after {
+    content: '';
+    display: none;
+    top: 50%;
+    left: 50%;
+    border-style: solid;
+    border-color: #000000;
+    position: absolute;
+    transform-origin: 50% 50%;
+  }
+  
+  &.left::after { 
+    width: 40px;
+    height: 0;
+    border-width: 2px 0 0 0;
+    transform: translate(-14px, -1px);
+  }
+  
+  &.left:hover {
+  transform: translate3d(-10px, 0, 0);
+  }
+  
+  &.right::after { 
+    width: 40px;
+    height: 0;
+    border-width: 2px 0 0 0;
+    transform: translate(-26px, -1px);
+  }
+  &.right:hover {
+  transform: translate3d(10px, 0, 0);
+  }
+  
+  &.circle {
+    
+    border-radius: 50px;
+    
+  }
+  
+  
+}
+
+
+.mainMonthPick{
+  //border:1px solid rgb(0, 0, 0); 
+  width:100%; 
+  height:60px; 
+  
+  position:relative;
+  white-space: nowrap;
+  overflow: hidden;
+  
+  height: 60px;
+  line-height: 60px;
+  text-align: center;
+  span{
+    font-size:x-large;
+  }
+}
+
+.rightcorner{
+  top: 5px;
+  right:10px; 
+  bottom: 0;
+  position:absolute;
+  cursor: pointer;
+}
+.leftcorner{
+  cursor: pointer;
+  top: 5px;
+  left:10px; 
+  bottom: 0;
+  position:absolute;
+}

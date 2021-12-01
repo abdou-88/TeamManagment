@@ -1,0 +1,93 @@
+
+$strips: 6;
+
+
+h1 {
+    font-size: large;
+}
+
+.striips {
+    align-items: center;
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    height: 100px;
+
+    justify-content: center;
+    overflow: hidden;
+    width: 100%;
+
+}
+
+.blue{background-color: rgb(12, 158, 217);}
+.red{background-color: rgb(255, 0, 0);}
+
+.strip {
+    border-left: white solid 2px;
+    cursor: pointer;
+    color: rgb(255, 255, 255);
+    align-items: center;
+    display: flex;
+    height: 100px;
+
+
+    justify-content: center;
+    overflow: hidden;
+    span{
+
+      font-size: x-large;
+    }
+    .content {
+        opacity: 0;
+        transform: scale(0);
+        width: 0;
+        h1,
+        p {
+            opacity: 0;
+            transition: opacity 600ms ease, transform 600ms ease;
+        }
+        h1 {
+            transform: translateY(-25%);
+        }
+        p {
+            transform: translateX(25%);
+            transition-delay: 600ms;
+        }
+    }
+    &.hoverin {
+        grid-column: 1 / span 5;
+        justify-content: flex-start;
+        padding-left: 2.92em;
+        .content {
+            font-size: .6em;
+            opacity: 1;
+            padding: 4em;
+            transform: scale(1);
+            width: 100%;
+            h1,
+            p {
+                opacity: 1;
+
+            }
+            h1 {
+                transform: translateY(0);
+            }
+            p {
+                transform: translateX(0);
+            }
+        }
+    }
+}
+
+
+.SlaDiv{
+  height: 100px;
+}
+
+@for $i from 1 through $strips {
+    .strip:nth-child(#{$i}) {
+
+        &:hover {
+            grid-column: #{$i} / span 5;
+        }
+    }
+}

@@ -1,0 +1,199 @@
+ ///header styles
+  .HeaderRow:after {
+      content: "";
+      display: table;
+      clear: both;
+  }
+
+  .HeaderColumn {
+      float: left;
+      width: 33.33%;
+      height: 50px;
+      background: #000000;
+      font-size: large;
+      color : white;
+      padding: 5px;
+  }
+
+  .HeaderExpender{
+    
+    justify-content: center;
+    transition: all 0.2s linear ;
+    background: #000000;
+    width: 100%;
+    height: 0px;
+    color:#ffffff;
+  }
+
+  .colMonth{
+      text-align: center;
+      font-size: x-large;
+      font-weight: bold;
+  }
+
+  .colName{
+    padding: 10px;
+    color:rgb(12, 158, 217);
+  }
+
+
+  .colInfo{
+    text-align:right;
+    padding: 10px;
+  }
+
+
+
+
+  /////////////
+.calendarContainer {
+  
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+  
+}
+.boxCalendar {
+    width: 300px;
+    position: absolute;
+    left: 50%;
+    margin-left: -150px;
+  
+ }
+.cell {
+  cursor: pointer;
+  background: white;
+  color: black;
+  font-size: 0.7rem;
+  text-align: center;
+  padding: 7px;
+  border : solid 5px;
+  
+}
+.cell:hover{
+  background: rgb(12, 158, 217);
+  color: white;
+  border : solid 5px black;
+}
+.yearCell{
+  color: #ffffff;
+  text-align: center;
+  font-size: large;
+}
+
+
+.cellSelected {
+  background: rgb(12, 158, 217);
+  color: white;
+  border-color: black;
+  
+}
+
+
+
+
+
+*, *:before, *:after {
+	box-sizing: border-box;
+}
+
+
+.arrow {
+  
+  width: 20px;
+  height: 20px;
+  padding: 5px;
+  display: inline-block;
+  position: relative;
+  transition: all 0.2s linear ;
+
+  &::before {
+    content: '';
+    display: block;
+    width: 15px;
+    height: 15px;
+    top: 50%;
+    left: 50%;
+    border-style: solid;
+    border-color: #ffffff;
+    border-width: 2px 2px 0 0;
+    position: absolute;
+    transform-origin: 50% 50%;
+  }
+
+  &.left::before { 
+    transform: rotate(-135deg);
+    margin: -10px 0 0 -10px;
+    //border-color: #ffffff;
+  }
+  
+  &.right::before { 
+    transform: rotate(45deg); 
+    margin: -10px 0 0 -10px;
+   // border-color: #ffffff;
+  }
+  
+  &::after {
+    content: '';
+    display: none;
+    top: 50%;
+    left: 50%;
+    border-style: solid;
+    border-color: #ffffff;
+    position: absolute;
+    transform-origin: 50% 50%;
+  }
+  
+  &.left::after { 
+    width: 30px;
+    height: 0;
+    border-width: 2px 0 0 0;
+    //transform: translate(-14px, -1px);
+  }
+  
+  &.left:hover {
+  transform: translate3d(-5px, 0, 0);
+  }
+  
+  &.right::after { 
+    width: 30px;
+    height: 0;
+    border-width: 0 0 0 2px;
+    //transform: translate(-14px, -1px);
+  }
+  &.right:hover {
+  transform: translate3d(5px, 0, 0);
+  }
+  
+  &.circle {
+    
+    border-radius: 50px;
+    
+  }
+  
+  
+}
+
+
+
+
+.rightcorner{
+  top: 5px;
+  right:10px; 
+  bottom: 0;
+  position:absolute;
+  cursor: pointer;
+}
+.leftcorner{
+  cursor: pointer;
+  top: 5px;
+  left:15px; 
+  bottom: 0;
+  position:absolute;
+}
+
+.iconCal{
+  cursor: pointer;
+  width: 40px;
+  height: 40px ;
+}

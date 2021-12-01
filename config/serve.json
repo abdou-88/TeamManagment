@@ -1,0 +1,34 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/core-build/serve.schema.json",
+  "port": 4321,
+  "https": true,
+  "serveConfigurations": {
+    "default": {
+      "pageUrl": "https://centurylink.sharepoint.com/sites/ITSCatalentTeam/SitePages/Catalent-Schedule.aspx",
+      "customActions": {
+        "5831ef5a-a400-43c4-b461-fc91c6ec25d0": {
+          "location": "ClientSideExtension.ApplicationCustomizer",
+          "properties": {
+            "testMessage": "Test message"
+          }
+        }
+      }
+    },
+    "teamManagment": {
+      "pageUrl": "https://centurylink.sharepoint.com/sites/ITSCatalentTeam/SitePages/Catalent-Schedule.aspx",
+      "customActions": {
+        "5831ef5a-a400-43c4-b461-fc91c6ec25d0": {
+          "location": "ClientSideExtension.ApplicationCustomizer",
+          "properties": {
+            "testMessage": "Test message"
+          }
+        }
+      }
+    }
+  },
+  "initialPage": "https://localhost:5432/workbench",
+  "api": {
+    "port": 5432,
+    "entryPath": "node_modules/@microsoft/sp-webpart-workbench/lib/api/"
+  }
+}

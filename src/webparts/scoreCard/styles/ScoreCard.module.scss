@@ -1,0 +1,419 @@
+@import '~office-ui-fabric-react/dist/sass/References.scss';
+
+.TeamScoreCard {
+  .container {
+    max-width: 100%;
+    margin: 0px auto;
+
+  }
+
+  .row {
+    @include ms-Grid-row;
+    @include ms-fontColor-white;
+
+    padding: 20px;
+  }
+
+
+
+
+  .title {
+    @include ms-font-xl;
+    @include ms-fontColor-white;
+    color: #222;
+  }
+
+  .subTitle {
+
+    @include ms-font-l;
+    @include ms-fontColor-black;
+  }
+
+  .description {
+    @include ms-font-l;
+    @include ms-fontColor-white;
+    color:#484848;
+  }
+
+  .button {
+    // Our button
+    text-decoration: none;
+    height: 32px;
+
+    // Primary Button
+    min-width: 80px;
+    background-color: $ms-color-themePrimary;
+    border-color: $ms-color-themePrimary;
+    color: $ms-color-white;
+
+    // Basic Button
+    outline: transparent;
+    position: relative;
+    font-family: "Segoe UI WestEuropean","Segoe UI",-apple-system,BlinkMacSystemFont,Roboto,"Helvetica Neue",sans-serif;
+    -webkit-font-smoothing: antialiased;
+    font-size: $ms-font-size-m;
+    font-weight: $ms-font-weight-regular;
+    border-width: 0;
+    text-align: center;
+    cursor: pointer;
+    display: inline-block;
+    padding: 0 16px;
+
+    .label {
+      font-weight: $ms-font-weight-semibold;
+      font-size: $ms-font-size-m;
+      height: 32px;
+      line-height: 32px;
+      margin: 0 4px;
+      vertical-align: top;
+      display: inline-block;
+    }
+  }
+
+  .NavButton {
+
+    border: none;
+    color: white;
+    padding: 7px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    background-color:  #242424;
+    color: white;
+
+  }
+
+  .NavButton:hover {
+    background-color: #0C9ED9;
+
+
+  }
+
+  .test{
+    opacity: 1;
+  }
+ 
+
+
+
+  /////footer grades style
+
+  .ScoreCFooter{
+  background: linear-gradient(to bottom, #484848 0%, #242424);
+   font-size: large;
+   color : white;
+   padding: 10px;
+   width: 100%;
+   padding: 5px;
+
+}
+
+table.Grades {
+  width: 100%;
+ }
+
+table.Grades td, table.Grades th {
+  text-align: center;
+  padding: 3px;
+}
+
+.leftAlign{
+  text-align: left;
+}
+
+.GreenBG {
+    background-color: green;
+}
+.GreenYellowBG {
+    background-color: greenyellow;
+}
+.YellowBG {
+    background-color: yellow;
+}
+.OrangeBG {
+    background-color: orange;
+}
+.RedBG {
+    background-color: red;
+}
+//////hex menu styling
+
+
+.hex:before{
+  content: " ";
+  width: 0; height: 0;
+  border-bottom: 30px solid #000000;
+  border-left: 52px solid transparent;
+  border-right: 52px solid transparent;
+  position:absolute;
+  top: -30px;
+  transition: all .3s ease;
+  left:0px;
+}
+.hex{
+  text-align:center;
+  float: left;
+  margin-left: -3px;
+  margin-top: 33px;
+  width: 104px;
+  height: 60px;
+  background-color:#000000;
+  position:relative;
+  transition: all .3s ease;
+
+  cursor: pointer;
+}
+.hex:after{
+  content: " ";
+  width: 0;
+  position: absolute;
+  bottom: -30px;
+  border-top: 30px solid #000000;
+  border-left: 52px solid transparent;
+  border-right: 52px solid transparent;
+  transition: all .3s ease;
+  left:0px;
+}
+.hexrow {
+    clear: left;
+}
+.hexrow.evenfar {
+    margin-left: 213px;
+    margin-top: -60px;
+}
+.hexrow.Commnet {
+    font-size: large;
+    margin-left: 438px;
+    margin-top: -115px;
+}
+
+.hexrow.even {
+    margin-left: 51px;
+}
+.hex:hover > .subhex{
+  opacity:1;
+  visibility:visible;
+}
+.hex:hover > .subhex:hover{
+  opacity:1;
+  visibility:visible;
+}
+.subhex{
+  position:absolute;
+  left:110px;
+  top:0px;
+  margin-top:0px;
+  opacity:0;
+  visibility:hidden;
+}
+.subhexVisible{
+  opacity: 1;
+  visibility:visible;
+}
+.subhexHalfVisible{
+  opacity: 0.5;
+  visibility:visible;
+}
+.subhex.bottomleft{
+  left:-50px;
+  top:93px;
+}
+
+.cmntDiv{
+  background-color: rgb(0, 0, 0);
+  text-align: left;
+  padding: 3px;
+  width: 316px;
+  height: 60px;
+  top:-10px;
+}
+.subhex.bottom{
+  left:57px;
+  top:93px;
+}
+.subhex.top{
+  left:56px;
+  top:-93px;
+}
+.hex:hover{
+  background-color: $ms-color-themePrimary;
+
+}
+.hex:hover:after{
+  border-top-color:$ms-color-themePrimary;
+
+}
+.hex:hover:before{
+  border-bottom-color:$ms-color-themePrimary;
+
+}
+.hex:hover > .hex{
+  opacity:0.6;
+}
+
+.hexbigtext{
+  font-size:x-large;
+
+}
+
+}
+.hexContent{
+  position: relative;
+  top: -150px;
+}
+///////////// main hex
+// Hexagon
+$sqrt3: 1.7320508075688772;
+$edgeSize: 100px;
+$hexWidth: $edgeSize * 2;
+$hexHeight: $sqrt3 * $edgeSize;
+
+// Display
+$borderHover: 15px;
+$soft-white: rgba(0,0,0,1);
+
+// Easing
+$ease-out-expo: cubic-bezier(0.19, 1, 0.22, 1);
+$ease-out-quart: cubic-bezier(0.165, 0.84, 0.44, 1);
+
+
+.Mbutton {
+  position: relative;
+  top: 552px;
+  left: 490px;
+
+  transform: translate3d(-50%,-50%,0) rotate(30deg);
+}
+/* End of container */
+
+// Contains 2 agons (.hex)
+.Mbutton {
+  cursor: pointer;
+  width: $hexWidth;
+  height: $hexHeight;
+  float: left;
+
+  &:last-child {
+    margin-right: 0;
+  }
+
+  // Hover state
+  &:hover {
+    .Mhex:last-child {
+      border-color:  #0C9ED9;
+    }
+    .Mhex:first-child {
+     border-color:  #0C9ED9;
+
+      div:before, div:after {
+        border-color:  #0C9ED9;
+      }
+
+      border-color:  #0C9ED9;
+    }
+  }
+}
+
+// Contains 3 div that makes the hexagon
+.Mhex {
+  position: absolute;
+  top: 0;
+  left: $edgeSize/2;
+  width: $edgeSize;
+  height: $hexHeight;
+  opacity: 0.5;
+
+  // Inset
+  &:first-child {
+    transform: scale(0.9);
+    transition: all 0.3s $ease-out-quart;
+    z-index: 0;
+  }
+
+  // Outset
+  &:last-child {
+    transition: all 0.3s $ease-out-expo;
+    z-index: 1;
+  }
+
+  div {
+    box-sizing: border-box;
+    position: absolute;
+    top: 0;
+    width: $edgeSize;
+    height: $hexHeight;
+
+    &:before, &:after {
+      content: ' ';
+      position: absolute;
+      background: $soft-white;
+      width: 100%;
+      height: 1px;
+
+      transition: height 0.3s $ease-out-quart;
+    }
+    &:before {
+      top: 0;
+    }
+    &:after {
+      bottom: 0;
+    }
+    &:nth-child(1) {
+      transform: rotate(0deg);
+    }
+    &:nth-child(2) {
+      transform: rotate(60deg);
+    }
+    &:nth-child(3) {
+      transform: rotate(120deg);
+    }
+
+    transform-origin: center center;
+  }
+}
+
+
+
+/// main grid layout style
+.parent {
+display: grid;
+grid-template-columns: repeat(5, 1fr);
+grid-template-rows: repeat(5, 1fr);
+grid-column-gap: 0px;
+grid-row-gap: 0px;
+}
+
+.div1 {
+  height: 540px;
+  padding: 5px;
+  //background-color: #0C9ED9;
+  grid-area: 1 / 1 / 4 / 4;
+
+}
+
+.div2 { color: #000000;
+  text-align: center;
+  grid-area: 1 / 4 / 5 / 6;
+  padding: 5px;
+  //background-color: #a2d90c;
+}
+.div3 {
+
+  //background-color: #ff8f62;
+  color: #000000;
+  grid-area: 4 / 1 / 5 / 4;
+}
+
+
+  .div1 {  grid-area: 1 / 1 / 5 / 4; }
+  .div2 { grid-area: 1 / 4 / 6 / 6; }
+  .div3 {  grid-area: 5 / 1 / 6 / 4; }
+
+
+
+
+//
