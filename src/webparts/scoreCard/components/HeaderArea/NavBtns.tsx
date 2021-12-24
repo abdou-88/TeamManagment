@@ -36,16 +36,25 @@ export const NavBtns: React.FC<NavBtnsProps> = ({ Y,M, onNavClick }) => {
        monthName = month[1];
     } 
   });
-  ////
+  //// increase / decrease 
   function increase(){
-     M = parseInt(M) + 1;
-     if(M <= 10){M="0"+M;}
-     console.log(M);
+    if (parseInt(M) == 12) {
+      Y = parseInt(Y) + 1;
+      M = 1;
+    } else {
+      M = parseInt(M) + 1;
+    }
+     M < 10 ? (M = "0" + M) : M=M;
   }
+
    const decrease = () => {
-     M = parseInt(M) - 1;
-     if(M <= 10){M="0"+M;}
-     console.log(M);
+     if (parseInt(M) == 1) {
+        Y = parseInt(Y) - 1;
+        M = 12;
+      }else{
+        M = (parseInt(M) - 1).toString();
+        M < 10 ? (M = "0" + M) : M=M;
+      }
    };
 
   return (

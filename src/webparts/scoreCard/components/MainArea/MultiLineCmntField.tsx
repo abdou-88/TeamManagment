@@ -4,25 +4,37 @@ import styles from "../../styles/MultiLine.module.scss";
 
 
 
-export const MultiLineCmntField: React.FC<{comment: string; visibility: boolean; edit: boolean;}> = (props) => {
+export const MultiLineCmntField: React.FC<{
+  placeholderCmnt:string; 
+  comment: string;
   
+  edit: boolean;
+}> = (props) => {
+
+
   const [cmnt, setCmnt] = React.useState<string>(props.comment);
+  
 
   React.useEffect(() => {
     setCmnt(props.comment);
   }, [props.comment]);
-  
+
   return (
-    <div className={props.visibility ? styles.show : styles.hide}>
+    <div>
       <textarea
         value={cmnt}
         disabled={!props.edit}
-        placeholder="There is no comment for you this month..."
-      >
-      </textarea>
+        placeholder={props.placeholderCmnt}
+      ></textarea>
       <span></span>
       <span className={styles.bar}></span>
+      <div className={styles.buttonsDown}>
+        {/* style={{ display: "none" }} */}
+        Cancel
+      </div>
+      <div className={styles.buttonsDown} >
+        Submit
+      </div>
     </div>
   );
-
 };

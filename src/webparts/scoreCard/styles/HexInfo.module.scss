@@ -1,0 +1,272 @@
+
+.hex-menu{
+  position:relative;
+	
+  // Inner Item
+  .hex-1{
+		
+    position: absolute;
+    top:0;
+    z-index:2;
+    width:70px;
+    height:110px;
+    cursor:pointer;
+    background:#fff;
+    transform:translateX(0);
+    transition: all .15s ease-out;
+    
+    &.is_hover{
+      transform:translateX(220px);
+      transition: all .15s ease-out;
+    }
+
+    &::before, &::after{
+      content:'';
+      position:absolute;
+      top:0;
+      display:block;
+      width:0;
+      height:0;
+    }
+    
+    
+    // active
+    &.is_acitve{
+      left:220px;
+      transition: left .1s ease-out;
+    }
+    
+    .title{
+			position:absolute;
+      top:46.5px;
+			left:20px;
+			color: #000;
+      right:0px;
+      transform:translateY(-50%) rotate(-90deg);
+      font-weight:bold;
+      font-size:0.96rem;
+      user-select:none;
+    }
+  }
+
+
+.fullArrow{
+  position: absolute;
+  //transform: rotate(45deg);
+  transform:translateY(-50%) rotate(-45deg);
+  top: 55px;
+  left: 20px;
+  height: 50px;
+  width: 50px;
+}
+
+.arrow1{
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  height: 50px;
+  width: 50px;
+  border-right: solid 2px #000;
+  border-bottom: solid 2px #000;
+}
+.arrow2{
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  height: 50px;
+  width: 50px;
+  border-right: solid 2px #000;
+  border-bottom: solid 2px #000;
+}
+
+
+  .hex-2{
+    position:relative;
+    z-index:1;    
+    
+    .hex-2-item{
+      position:relative;
+      background-color:transparent;
+      z-index:1;
+      width:75px;
+      height:110px;
+      transition: all .15s ease-out;
+
+      &::before, &::after{
+        content:'';
+        position:absolute;
+        z-index:1;
+        top:0;
+      }
+      
+      &::before{
+      left:-30px;
+      border-style:solid;
+      border-width:55.5px 30px 55.5px 0;
+      border-color:transparent transparent transparent transparent;
+      }
+
+      &.extend{
+        width:100px;
+        transition: all .15s ease-out;
+      }
+    }
+    
+    &.is_active{
+      .view-detail{
+        display:block;
+      }
+    }
+    .view-detail{
+    display:none;
+    position:absolute;
+    top:50%;
+    transform:translateY(-50%);
+    z-index:2;
+    width:180px;
+    }
+  }
+  .hex-icon1{
+    display:block;
+    position:absolute;
+		cursor: pointer;
+    left:50%;		
+    top:50%;
+    transform:translateY(-50%);
+    width:30px;
+    height:50px;
+    background:#0C9ED9;
+    
+    &::before,&::after{
+      content:'';
+      display:block;
+      position:absolute;
+    }
+    &::before{
+      left:-14px;
+      border-style:solid;
+      border-width:25.5px 14px 25.5px 0;
+      border-color:transparent #0C9ED9 transparent transparent;
+    }
+    &::after{
+      right:-14px;
+      border-style:solid;
+      border-width:25.5px 0 25.5px 14px;
+      border-color:transparent transparent transparent #0C9ED9;
+    }
+  }
+
+
+
+  .hex-1:hover .hex-icon1{ 
+     background:#0C9ED9;
+     &::before{
+     border-color:transparent #0C9ED9 transparent transparent;
+    }
+    &::after{
+      border-color:transparent transparent transparent #0C9ED9;
+    }
+  }
+
+  .hex-icon1:hover{
+    background:#000;
+     &::before{
+     border-color:transparent #000 transparent transparent;
+    }
+    &::after{
+      border-color:transparent transparent transparent #000;
+    }
+  }
+
+  .hex-icon1:hover > div#hex-icon{
+    background:#000;
+    
+  }
+
+
+	.upHex{
+		left:35px;		
+    top:-30px;
+	}
+	.upDown{
+		left:35px;		
+    top:30px;
+	}
+	.upRight{
+		left:85px;		
+    top:0px;
+	}
+  .firstHex{
+    top:0px;
+    left:-15px;
+  }
+  .mainHex{
+    top:55px;
+    left:-15px;
+    background:#000;
+     &::before{
+     border-color:transparent #000 transparent transparent;
+    }
+    &::after{
+      border-color:transparent transparent transparent #000;
+    }
+  }
+	.titleicon{
+		width:100px;
+		top:0;
+		left:160px;		
+    color:#000;
+		text-align: center;
+		position: absolute;
+    z-index:2;
+    height:50px;
+    
+    background:#fff;
+    transform: translate3d(-50%,-50%,0) rotate(-90deg);
+	}
+}
+
+
+//help menu icons
+.questionicon{
+    left:0px;
+		top:55px;
+    
+ }
+	.GradesPrIcon{
+    left:50px;		
+    top:30px;
+ }
+ 	.GradesAvIcon{
+    left:50px;
+		top:-32px;
+    
+ }
+ .CmntIcon{
+   left:100px;
+	 top:0px;
+    
+ }
+
+  .FAicons{
+	  color:#fff;
+		text-align: center;
+		position:absolute;
+    z-index:2;cursor: pointer;
+    transform: translate3d(-50%,-50%,0) rotate(-90deg);
+    width:20px;
+    height:20px;   
+  }
+
+ 
+
+.Mbutton {
+  position: relative;
+  top: 350px;
+  left: 560px;
+  width: 140px;
+  height: 110px;
+  transform: translate3d(-50%,-50%,0) rotate(90deg);
+	
+}
+

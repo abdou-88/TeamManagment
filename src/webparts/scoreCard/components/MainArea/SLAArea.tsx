@@ -1,49 +1,45 @@
 import * as React from "react";
-import  { useState, useEffect } from 'react';
 import styles from "../../styles/SLA.module.scss";
 
+import * as XLSX from "xlsx";
+import { data } from "jquery";
 
 interface SlaAreaProps {
-
+  data:string[];
 }
 interface SlaAreaState {
   Cssclass: boolean[];
 
 }
+export const SLAArea: React.FC<SlaAreaProps> = (props) => { 
 
-export default class SLAArea extends React.Component<SlaAreaProps, SlaAreaState> {
-
-  constructor(props: SlaAreaProps) {
-    super(props);
-
+ 
+  function convertPercen(s:string){   
+    return parseFloat((parseFloat(parseFloat(s).toFixed(4)) * 100).toFixed(4));
   }
 
-  public componentDidMount() {
-    var strip = document.querySelectorAll("[class*=strip]");
-    //this.setState({ Cssclass: this.styleArr, hovering: strip[0].classList[2] });
-    const HovClassName = strip[0].classList[2];
-    strip.forEach( (theStrip) => {
-      theStrip.addEventListener("mouseenter",  () => {
-        strip[0].classList.remove(HovClassName);
-        theStrip.classList.add(HovClassName);
+    React.useEffect(() => {
+      var strip = document.querySelectorAll("[class*=strip]");
+      
+      
+      const HovClassName = strip[0].classList[2];
+      strip.forEach((theStrip) => {
+        theStrip.addEventListener("mouseenter", () => {
+          strip[0].classList.remove(HovClassName);
+          theStrip.classList.add(HovClassName);
+        });
+        theStrip.addEventListener("mouseleave", () => {
+          theStrip.classList.remove(HovClassName);
+          strip[0].classList.add(HovClassName);
+        });
       });
-      theStrip.addEventListener("mouseleave",  () => {
-        theStrip.classList.remove(HovClassName);
-        strip[0].classList.add(HovClassName);
-      });
-    });
-
-  }
+    }, []);
 
 
-  public render(): React.ReactElement<SlaAreaProps> {
     return (
       <div className={styles.striips}>
-        <div
-
-          className={`${styles.strip} ${styles.blue} ${styles.hoverin} `}
-        >
-          <span>85.03%</span>
+        <div className={`${styles.strip} ${convertPercen(props.data[0])>85 ?styles.blue: styles.red} ${styles.hoverin} `}>
+          <span>{convertPercen(props.data[0])}%</span>
           <div className={styles.content}>
             <h1>Speed to Answer </h1>
             <p>
@@ -55,11 +51,8 @@ export default class SLAArea extends React.Component<SlaAreaProps, SlaAreaState>
           </div>
         </div>
 
-        <div
-
-          className={`${styles.strip} ${styles.blue}  `}
-        >
-          <span>4.86%</span>
+        <div className={`${styles.strip} ${convertPercen(props.data[1])<5 ?styles.blue: styles.red}  `}>
+          <span>{convertPercen(props.data[1])}%</span>
           <div className={styles.content}>
             <h1>Abandonment Rate</h1>
             <p>
@@ -72,8 +65,8 @@ export default class SLAArea extends React.Component<SlaAreaProps, SlaAreaState>
           </div>
         </div>
 
-        <div className={`${styles.strip} ${styles.blue} `}>
-          <span>82.14%</span>
+        <div className={`${styles.strip} ${convertPercen(props.data[2])>80 ?styles.blue: styles.red} `}>
+          <span>{convertPercen(props.data[2])}%</span>
           <div className={styles.content}>
             <h1>Email to Ticket Conversion</h1>
             <p>
@@ -84,8 +77,8 @@ export default class SLAArea extends React.Component<SlaAreaProps, SlaAreaState>
           </div>
         </div>
 
-        <div className={`${styles.strip} ${styles.red} `}>
-          <span>98.99%</span>
+        <div className={`${styles.strip} ${convertPercen(props.data[3])>90 ?styles.blue: styles.red} `}>
+          <span>{convertPercen(props.data[3])}%</span>
           <div className={styles.content}>
             <h1>First Level Incident Resolution </h1>
             <p>
@@ -95,8 +88,8 @@ export default class SLAArea extends React.Component<SlaAreaProps, SlaAreaState>
           </div>
         </div>
 
-        <div className={`${styles.strip} ${styles.blue} `}>
-          <span>88.21%</span>
+        <div className={`${styles.strip} ${convertPercen(props.data[4])>80 ?styles.blue: styles.red} `}>
+          <span>{convertPercen(props.data[4])}%</span>
           <div className={styles.content}>
             <h1>Self Service Acknowledgement</h1>
             <p>
@@ -109,8 +102,8 @@ export default class SLAArea extends React.Component<SlaAreaProps, SlaAreaState>
           </div>
         </div>
 
-        <div className={`${styles.strip} ${styles.red} `}>
-          <span>97.26%</span>
+        <div className={`${styles.strip} ${convertPercen(props.data[5])>90 ?styles.blue: styles.red} `}>
+          <span>{convertPercen(props.data[5])}%</span>
           <div className={styles.content}>
             <h1>Password Reset First Call Resolution</h1>
             <p>
@@ -124,7 +117,7 @@ export default class SLAArea extends React.Component<SlaAreaProps, SlaAreaState>
         </div>
       </div>
     );
-  }
-}
+  
+};
 
 

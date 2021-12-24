@@ -1,5 +1,29 @@
 @import '~office-ui-fabric-react/dist/sass/References.scss';
 
+
+////////@at-root/* ===== Scrollbar CSS ===== */
+  /* Firefox */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(0,0,0,0.7) #ffffff;
+  }
+
+  /* Chrome, Edge, and Safari */
+  *::-webkit-scrollbar {
+    width: 5px;
+  }
+
+  *::-webkit-scrollbar-track {
+    background: #ffffff;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background-color: rgba(0,0,0,0.7);
+    border-radius: 5px;
+    border: 3px double #ffffff;
+  }
+////////
+
 .TeamScoreCard {
   .container {
     max-width: 100%;
@@ -263,7 +287,7 @@ table.Grades td, table.Grades th {
 }
 .hexContent{
   position: relative;
-  top: -150px;
+  top: -70px;
 }
 ///////////// main hex
 // Hexagon
@@ -281,99 +305,16 @@ $ease-out-expo: cubic-bezier(0.19, 1, 0.22, 1);
 $ease-out-quart: cubic-bezier(0.165, 0.84, 0.44, 1);
 
 
+
 .Mbutton {
   position: relative;
-  top: 552px;
-  left: 490px;
-
-  transform: translate3d(-50%,-50%,0) rotate(30deg);
-}
-/* End of container */
-
-// Contains 2 agons (.hex)
-.Mbutton {
-  cursor: pointer;
-  width: $hexWidth;
-  height: $hexHeight;
-  float: left;
-
-  &:last-child {
-    margin-right: 0;
-  }
-
-  // Hover state
-  &:hover {
-    .Mhex:last-child {
-      border-color:  #0C9ED9;
-    }
-    .Mhex:first-child {
-     border-color:  #0C9ED9;
-
-      div:before, div:after {
-        border-color:  #0C9ED9;
-      }
-
-      border-color:  #0C9ED9;
-    }
-  }
-}
-
-// Contains 3 div that makes the hexagon
-.Mhex {
-  position: absolute;
-  top: 0;
-  left: $edgeSize/2;
-  width: $edgeSize;
-  height: $hexHeight;
-  opacity: 0.5;
-
-  // Inset
-  &:first-child {
-    transform: scale(0.9);
-    transition: all 0.3s $ease-out-quart;
-    z-index: 0;
-  }
-
-  // Outset
-  &:last-child {
-    transition: all 0.3s $ease-out-expo;
-    z-index: 1;
-  }
-
-  div {
-    box-sizing: border-box;
-    position: absolute;
-    top: 0;
-    width: $edgeSize;
-    height: $hexHeight;
-
-    &:before, &:after {
-      content: ' ';
-      position: absolute;
-      background: $soft-white;
-      width: 100%;
-      height: 1px;
-
-      transition: height 0.3s $ease-out-quart;
-    }
-    &:before {
-      top: 0;
-    }
-    &:after {
-      bottom: 0;
-    }
-    &:nth-child(1) {
-      transform: rotate(0deg);
-    }
-    &:nth-child(2) {
-      transform: rotate(60deg);
-    }
-    &:nth-child(3) {
-      transform: rotate(120deg);
-    }
-
-    transform-origin: center center;
-  }
+  top: 350px;
+  left: 580px;
+  width: 200px;
+  height: 100px;
+  transform: translate3d(-50%,-50%,0) rotate(90deg);
+	cursor: pointer;
+  background: #000000;
 }
 
 
@@ -395,10 +336,13 @@ grid-row-gap: 0px;
 
 }
 
-.div2 { color: #000000;
+.div2 { 
+  color: #000000;
   text-align: center;
   grid-area: 1 / 4 / 5 / 6;
   padding: 5px;
+  overflow-y: scroll; 
+  height: 620px;
   //background-color: #a2d90c;
 }
 .div3 {

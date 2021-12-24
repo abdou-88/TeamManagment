@@ -11,6 +11,8 @@ export interface IAppProps {
   siteUrl: string;
   excelFileData: any[];
   monthToAdd: string;
-  addM:boolean;
+  addM: boolean;
   collectionData: any[];
+  context: any;
+  
 }

@@ -1,14 +1,13 @@
 import * as React from "react";
-import { useRef } from "react";
+
 import Chart from "react-apexcharts";
 
 
 
 
-export const ChartComp: React.FC<{ data:any, categories:any, annotation:string, title:string}> = (props) => {
+export const ChartComp: React.FC<{ data:any, categories:any, annotation:string, title:string, color:Function}> = (props) => {
   
-  //const [data, updateData] = React.useState([0, 1, 2, 3, 4, 5, 6]);
-
+  
     const options = {
       chart: {
         id: "basic-bar",
@@ -34,6 +33,9 @@ export const ChartComp: React.FC<{ data:any, categories:any, annotation:string, 
       dataLabels: {
         enabled: false,
       },
+      fill: {
+        colors: [props.color],
+      },
     };
 
     const series= [
@@ -54,8 +56,6 @@ export const ChartComp: React.FC<{ data:any, categories:any, annotation:string, 
       <div className="row">
         <div className="mixed-chart">
           <Chart
-            
-            
             options={options}
             series={series}
             type="bar"

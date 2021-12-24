@@ -1,7 +1,6 @@
 import * as React from 'react';
 import * as ReactDom from 'react-dom';
 
-
 import readXlsxFile from "read-excel-file";
 
 import {
@@ -67,11 +66,14 @@ export default class ScoreCardWebPart extends BaseClientSideWebPart<IScoreCardWe
   public addingMessage: string = "";
   public msgVisibility: boolean = false;
   public msgType: MessageBarType = MessageBarType.error;
+  
 
+  
   // function to get the file from the control pnp panel file picker
   private _onFilePickerSave = async (filePickerResult: IFilePickerResult) => {
     if (filePickerResult) {
       const fileResultContent = await filePickerResult.downloadFileContent();
+      //console.log(fileResultContent);
       const reader = new FileReader();
       reader.readAsDataURL(fileResultContent);
 
@@ -84,6 +86,7 @@ export default class ScoreCardWebPart extends BaseClientSideWebPart<IScoreCardWe
   }
 
   public render(): void {
+    
     const element: React.ReactElement<IAppProps> = React.createElement(
       ScoreCard,
       {
@@ -95,10 +98,13 @@ export default class ScoreCardWebPart extends BaseClientSideWebPart<IScoreCardWe
         monthToAdd: this.monthToAdd,
         addM: this.addM,
         collectionData: this.properties.collectionData,
+        context: this.context,
+        
       }
     );
 
     ReactDom.render(element, this.domElement);
+    
   }
 
   protected onDispose(): void {
@@ -134,8 +140,6 @@ export default class ScoreCardWebPart extends BaseClientSideWebPart<IScoreCardWe
       this.msgType = MessageBarType.success;
       this.addingMessage = `${this.monthToAdd} data has been added successfully, Click the Apply button to save it.`;
 
-      console.log(this.addM);
-      // console.log(this.monthToAdd);
     };
 
     return {
@@ -297,9 +301,7 @@ export default class ScoreCardWebPart extends BaseClientSideWebPart<IScoreCardWe
     };
   }
 
-  // protected onPropertyPaneFieldChanged() : void{
-  //
-  // }
+ 
 
   protected get disableReactivePropertyChanges(): boolean {
     return true;
@@ -309,8 +311,7 @@ export default class ScoreCardWebPart extends BaseClientSideWebPart<IScoreCardWe
     this.msgVisibility = true;
     this.msgType = MessageBarType.success;
     this.addingMessage = `Month ${this.monthToAdd} has been saved successfully.`;
-
-    ReactDom.unmountComponentAtNode(this.domElement);
-    this.render();
   }
+
+ 
 }
