@@ -1,5 +1,11 @@
 {
   "extends": "./node_modules/@microsoft/sp-tslint-rules/base-tslint.json",
+     "displayAsWarning": true,
+ 
+      "removeExistingRules": true,
+
+      "useDefaultConfigAsBase": false,
+    
   "rules": {
     "class-name": false,
     "export-name": false,
