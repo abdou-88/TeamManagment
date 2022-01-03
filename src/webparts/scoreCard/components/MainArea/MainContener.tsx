@@ -4,7 +4,7 @@ import styles from "../../styles/ScoreCard.module.scss";
 
 
 import {ChartComp} from "./ChartComp";
-import HexMenu from "./HexMenu";
+import HexMenu from "./HexArea/HexMenu";
 import {MultiLineCmntField} from "./MultiLineCmntField";
 import  {SLAArea} from "./SLAArea";
 
@@ -22,6 +22,7 @@ export const MainContener: React.FC<{
   chartsData: any;
   slaData : string[];
 }> = (props) => {
+
   /// chart data manipulation
   let prodData = [];
   let prodCategories = [];
@@ -61,11 +62,9 @@ export const MainContener: React.FC<{
   const [qualCat, setQualCat] = useState([]);
   const [qualDa, setQualDa] = useState([]);
 
-  const cmntTxt = React.createContext(props.currentAnalyst.Scorecard.Comment);
-  const [cmntdisabled, setCmntDisabled] = React.useState<boolean>(true);
-  const [placeholder, setPlaceholder] = React.useState<string>(
-    "There is no comment for you this month..."
-  );
+  const [cmntTxt,setCmntTxt] = React.useState<string>("");
+  const [cmntdisabled, setCmntDisabled] = React.useState<boolean>(false);
+  
 
   useEffect(() => {
     setprodDa(prodData);
@@ -76,6 +75,24 @@ export const MainContener: React.FC<{
     setQualDa(qualData);
   }, [props.chartsData]);
 
+  useEffect(() => {
+    setCmntTxt(props.currentAnalyst.Scorecard.Comment);
+  }, [props.currentAnalyst.Scorecard.Comment]);
+
+
+
+
+  function handleCmntClick(){
+    setCmntTxt("");
+    setCmntDisabled(true);
+    
+  }
+  function handleCancelClick(){
+    
+    setCmntTxt(props.currentAnalyst.Scorecard.Comment);
+    setCmntDisabled(false);
+    
+  }
   ///////////////////////////////////
 
   return (
@@ -83,67 +100,70 @@ export const MainContener: React.FC<{
       <span className={styles.title}>
         {props.currentAnalyst.AnalystName} ScoreCard
       </span>
-      <cmntTxt.Provider value={props.currentAnalyst.Scorecard.Comment}>
-        <div className={styles.parent}>
-          <div className={styles.div1}>
-            <HexMenu currentAnalyst={props.currentAnalyst}></HexMenu>
-          </div>
 
-          <div className={styles.div2}>
-            <span className={styles.subTitle}>Team Productivity</span>
-            <ChartComp
-              data={prodDa}
-              categories={prodCat}
-              annotation={"95"}
-              title={"Productivity"}
-              color={({ value, seriesIndex, w }) => {
-                if (value < 95) {
-                  return "rgb(255, 0, 0)";
-                } else {
-                  return "rgb(12, 158, 217)";
-                }
-              }}
-            ></ChartComp>
-            <span className={styles.subTitle}>Team Availability</span>
-            <ChartComp
-              data={avDa}
-              categories={avCat}
-              annotation={"80"}
-              title={"Availability"}
-              color={({ value, seriesIndex, w }) => {
-                if (value < 80) {
-                  return "rgb(255, 0, 0)";
-                } else {
-                  return "rgb(12, 158, 217)";
-                }
-              }}
-            ></ChartComp>
-            <span className={styles.subTitle}>Team Quality</span>
-            <ChartComp
-              data={qualDa}
-              categories={qualCat}
-              annotation={"85"}
-              title={"Quality"}
-              color={({ value, seriesIndex, w }) => {
-                if (value < 85) {
-                  return "rgb(255, 0, 0)";
-                } else {
-                  return "rgb(12, 158, 217)";
-                }
-              }}
-            ></ChartComp>
-          </div>
-          <div className={styles.div3}>
-            <MultiLineCmntField
-              comment={props.currentAnalyst.Scorecard.Comment}
-              edit={cmntdisabled}
-              placeholderCmnt={placeholder}
-            ></MultiLineCmntField>
-            <br></br>
-            <span className={styles.subTitle}>Current Month SLA(s):</span>
-          </div>
+      <div className={styles.parent}>
+        <div className={styles.div1}>
+          <HexMenu
+            currentAnalyst={props.currentAnalyst}
+            handleCmntClick={handleCmntClick}
+          ></HexMenu>
         </div>
-      </cmntTxt.Provider>
+
+        <div className={styles.div2}>
+          <span className={styles.subTitle}>Team Productivity</span>
+          <ChartComp
+            data={prodDa}
+            categories={prodCat}
+            annotation={"95"}
+            title={"Productivity"}
+            color={({ value, seriesIndex, w }) => {
+              if (value < 95) {
+                return "rgb(255, 0, 0)";
+              } else {
+                return "rgb(12, 158, 217)";
+              }
+            }}
+          ></ChartComp>
+          <span className={styles.subTitle}>Team Availability</span>
+          <ChartComp
+            data={avDa}
+            categories={avCat}
+            annotation={"80"}
+            title={"Availability"}
+            color={({ value, seriesIndex, w }) => {
+              if (value < 80) {
+                return "rgb(255, 0, 0)";
+              } else {
+                return "rgb(12, 158, 217)";
+              }
+            }}
+          ></ChartComp>
+          <span className={styles.subTitle}>Team Quality</span>
+          <ChartComp
+            data={qualDa}
+            categories={qualCat}
+            annotation={"85"}
+            title={"Quality"}
+            color={({ value, seriesIndex, w }) => {
+              if (value < 85) {
+                return "rgb(255, 0, 0)";
+              } else {
+                return "rgb(12, 158, 217)";
+              }
+            }}
+          ></ChartComp>
+        </div>
+        <div className={styles.div3}>
+          <MultiLineCmntField
+            comment={cmntTxt}
+            edit={cmntdisabled}
+            
+            onCancelClicked={handleCancelClick}
+          ></MultiLineCmntField>
+          <br></br>
+          <span className={styles.subTitle}>Current Month SLA(s):</span>
+        </div>
+      </div>
 
       <SLAArea data={props.slaData}></SLAArea>
     </div>

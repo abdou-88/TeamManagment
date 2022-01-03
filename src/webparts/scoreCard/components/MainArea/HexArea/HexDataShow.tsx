@@ -1,35 +1,30 @@
 import * as React from "react";
 
-import styles from "../../styles/ScoreCard.module.scss";
+import styles from "../../../styles/ScoreCard.module.scss";
 
 /////icons import
 
-import prodIcon from "../../styles/icons/prod.png";
-import availIcon from "../../styles/icons/avail.png";
-import CsatIcon from "../../styles/icons/Csat.png";
-import QualIcon from "../../styles/icons/Quality.png";
-import MonthIcon from "../../styles/icons/MonthG.png";
-import { Hexinfo } from "./Hexinfo";
+import prodIcon from "../../../styles/icons/prod.png";
+import availIcon from "../../../styles/icons/avail.png";
+import CsatIcon from "../../../styles/icons/Csat.png";
+import QualIcon from "../../../styles/icons/Quality.png";
+import MonthIcon from "../../../styles/icons/MonthG.png";
 
 
-interface IHexMenuProps {
+interface IHexDataShowProps {
   currentAnalyst: any;
 }
 
- const HexMenu: React.FC<IHexMenuProps> = ({ currentAnalyst }) => { 
-  const SC = currentAnalyst.Scorecard; 
+const HexDataShow: React.FC<IHexDataShowProps> = ({ currentAnalyst }) => {
+  const SC = currentAnalyst.Scorecard;
   return (
-    <div className={styles.hexContent}>
-     
-      <Hexinfo></Hexinfo>
-       
-
+    <div>
       <div className={styles.hex + " " + styles.hexrow}>
         <img src={prodIcon} style={{ width: "40px", height: "40px" }} />
         <br></br>
         Productivity
         <div className={styles.subhex + " " + styles.hex}>
-          <h1>
+          <h1 style={{ color: "GreenYellow" }}>
             {(parseInt(SC.productivity.Calls.percentage) +
               parseInt(SC.productivity.Emails.percentage)) /
               2}
@@ -67,12 +62,15 @@ interface IHexMenuProps {
           </div>
         </div>
       </div>
+
       <div className={styles.hex + " " + styles.hexrow + " " + styles.even}>
         <img src={availIcon} style={{ width: "40px", height: "40px" }} />
         <br></br>
         Availability
         <div className={styles.subhex + " " + styles.hex}>
-          <h1>{SC.Availability.percentage}%</h1>
+          <h1 style={{ color: "Green" }}>
+            {SC.Availability.percentage}%
+          </h1>
           <div
             className={styles.subhex + " " + styles.hex + " " + styles.bottom}
           >
@@ -85,12 +83,13 @@ interface IHexMenuProps {
           </div>
         </div>
       </div>
+
       <div className={styles.hex + " " + styles.hexrow}>
         <img src={QualIcon} style={{ width: "40px", height: "40px" }} />
         <br></br>
         Quality
         <div className={styles.subhex + " " + styles.hex}>
-          <h1>
+          <h1 style={{ color: "Yellow" }}>
             {(parseInt(SC.Quality.Calls) + parseInt(SC.Quality.Tickets)) / 2}%
           </h1>
           <div
@@ -105,87 +104,33 @@ interface IHexMenuProps {
           </div>
         </div>
       </div>
+
       <div className={styles.hex + " " + styles.hexrow + " " + styles.even}>
         <img src={MonthIcon} style={{ width: "40px", height: "40px" }} />
         <br></br>
         Month Goal
         <div className={styles.subhex + " " + styles.hex}>
-          <h1>{SC.MonthGoal}</h1>
+          <h1 style={{ color: "Orange" }}>{SC.MonthGoal}112</h1>
         </div>
       </div>
+
       <div className={styles.hex + " " + styles.hexrow}>
         <img src={CsatIcon} style={{ width: "40px", height: "40px" }} />
         <br></br>
         Csat
-        <div className={styles.subhex + " " + styles.hex}>
-          <h1>{currentAnalyst.Scorecard.Csat}</h1>
-        </div>
-      </div>
-      {/* separator */}
-      <div
-        className={
-          styles.hex +
-          " " +
-          styles.hexrow +
-          " " +
-          styles.evenfar +
-          " " +
-          styles.subhexHalfVisible
-        }
-      >
         <div
-          className={
-            styles.subhex +
-            " " +
-            styles.hex +
-            " " +
-            styles.top +
-            " " +
-            styles.subhexHalfVisible
-          }
+          
+          className={styles.subhex + " " + styles.hex}
         >
-          <div
-            className={
-              styles.subhex +
-              " " +
-              styles.hex +
-              " " +
-              styles.top +
-              " " +
-              styles.subhexHalfVisible
-            }
-          >
-            <div
-              className={
-                styles.subhex +
-                " " +
-                styles.hex +
-                " " +
-                styles.top +
-                " " +
-                styles.subhexHalfVisible
-              }
-            >
-              <div
-                className={
-                  styles.subhex +
-                  " " +
-                  styles.hex +
-                  " " +
-                  styles.top +
-                  " " +
-                  styles.subhexHalfVisible
-                }
-              ></div>
-            </div>
-          </div>
+          <h1 style={{ color: "red" }}>
+            {currentAnalyst.Scorecard.Csat}
+          </h1>
         </div>
       </div>
     </div>
-  );};
+  );
+};
 
-    //
+//
 
-   
- 
-  export default HexMenu;
+export default HexDataShow;

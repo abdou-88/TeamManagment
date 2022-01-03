@@ -24,10 +24,7 @@ h1 {
   text-align: center;
 }
 
-form {
-  width: 320px;
-  margin: 45px auto;
-}
+
 
 .group {
   position: relative;
@@ -50,13 +47,13 @@ textarea {
   border-radius: 0;
   border-bottom: 1px solid #c6c6c6;
 }
-input:focus, textarea:focus {
+textarea:focus {
   outline: none;
   box-shadow: rgb(156, 156, 156) 5px;
 background-color: rgb(216, 216, 216);
 
 }
-input:focus ~ .bar:before,
+
 textarea:focus ~ .bar:before {
   width: 100%;
 

@@ -381,7 +381,8 @@ export const ScoreCard: React.FC<IAppProps> = ({
       analyst.Scorecard.productivity.Calls.Count = excelFileData[i][6];
       analyst.Scorecard.productivity.Emails.percentage = excelFileData[i][7];
       analyst.Scorecard.productivity.Emails.Count = excelFileData[i][8];
-      analyst.Scorecard.Comment = excelFileData[i][9];
+      analyst.Scorecard.Csat = excelFileData[i][9];
+      analyst.Scorecard.Comment = excelFileData[i][10];
 
       //analyst.Scorecard.
       fullmMnthToAdd.push(analyst);

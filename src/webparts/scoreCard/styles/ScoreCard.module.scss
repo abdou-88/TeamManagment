@@ -66,8 +66,8 @@
 
     // Primary Button
     min-width: 80px;
-    background-color: $ms-color-themePrimary;
-    border-color: $ms-color-themePrimary;
+    background-color: #0C9ED9;
+    border-color: #0C9ED9;
     color: $ms-color-white;
 
     // Basic Button
@@ -163,6 +163,7 @@ table.Grades td, table.Grades th {
 }
 .RedBG {
     background-color: red;
+    opacity: 1;
 }
 //////hex menu styling
 
@@ -205,10 +206,7 @@ table.Grades td, table.Grades th {
 .hexrow {
     clear: left;
 }
-.hexrow.evenfar {
-    margin-left: 213px;
-    margin-top: -60px;
-}
+
 .hexrow.Commnet {
     font-size: large;
     margin-left: 438px;
@@ -238,9 +236,117 @@ table.Grades td, table.Grades th {
   opacity: 1;
   visibility:visible;
 }
+
+
+
+//// separator
+
+.evenfar {
+    margin-left: 213px;
+    margin-top: -60px;
+    color: black;
+    visibility:visible;
+}
+.evenfar:hover {
+    opacity: 0.5;
+    color: white;
+    
+}
+
 .subhexHalfVisible{
   opacity: 0.5;
   visibility:visible;
+  
+}
+
+
+.Red:before{
+  
+  border-bottom: 30px solid red;
+  
+}
+.Red{
+  
+  visibility:visible;
+  background: red;
+  opacity: 1;
+
+}
+.Red:after{
+ 
+  border-top: 30px solid red;
+ 
+}
+
+.Orange:before{
+  
+  border-bottom: 30px solid orange;
+  
+}
+.Orange{
+  
+  visibility:visible;
+  background: orange;
+  opacity: 1;
+
+}
+.Orange:after{
+ 
+  border-top: 30px solid orange;
+ 
+}
+
+.Yellow:before{
+  
+  border-bottom: 30px solid yellow;
+  
+}
+.Yellow{
+  
+  visibility:visible;
+  background: Yellow;
+  opacity: 1;
+
+}
+.Yellow:after{
+ 
+  border-top: 30px solid Yellow;
+ 
+}
+
+.GreenYellow:before{
+  
+  border-bottom: 30px solid GreenYellow;
+  
+}
+.GreenYellow{
+  
+  visibility:visible;
+  background: GreenYellow;
+  opacity: 1;
+
+}
+.GreenYellow:after{
+ 
+  border-top: 30px solid GreenYellow;
+ 
+}
+.Green:before{
+  
+  border-bottom: 30px solid green;
+  
+}
+.Green{
+  
+  visibility:visible;
+  background: green;
+  opacity: 1;
+
+}
+.Green:after{
+ 
+  border-top: 30px solid green;
+ 
 }
 .subhex.bottomleft{
   left:-50px;
@@ -264,15 +370,15 @@ table.Grades td, table.Grades th {
   top:-93px;
 }
 .hex:hover{
-  background-color: $ms-color-themePrimary;
+  background-color: #0C9ED9;
 
 }
 .hex:hover:after{
-  border-top-color:$ms-color-themePrimary;
+  border-top-color:#0C9ED9;
 
 }
 .hex:hover:before{
-  border-bottom-color:$ms-color-themePrimary;
+  border-bottom-color:#0C9ED9;
 
 }
 .hex:hover > .hex{
@@ -319,6 +425,9 @@ $ease-out-quart: cubic-bezier(0.165, 0.84, 0.44, 1);
 
 
 
+
+
+
 /// main grid layout style
 .parent {
 display: grid;
@@ -353,9 +462,9 @@ grid-row-gap: 0px;
 }
 
 
-  .div1 {  grid-area: 1 / 1 / 5 / 4; }
-  .div2 { grid-area: 1 / 4 / 6 / 6; }
-  .div3 {  grid-area: 5 / 1 / 6 / 4; }
+.div1 {  grid-area: 1 / 1 / 5 / 4; }
+.div2 { grid-area: 1 / 4 / 6 / 6; }
+.div3 {  grid-area: 5 / 1 / 6 / 4; }
 
 
 
